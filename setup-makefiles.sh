@@ -1,5 +1,5 @@
-VENDOR=htc
-DEVICE=pyramid
+VENDOR=fly
+DEVICE=iq285
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 
