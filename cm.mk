@@ -13,8 +13,8 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/fly/iq285/device.mk)
 
 # Device naming
-PRODUCT_DEVICE := fluiq85
-PRODUCT_NAME := cm_iq285
+PRODUCT_DEVICE := K4
+PRODUCT_NAME := Fly_IQ285
 PRODUCT_BRAND := Fly
 PRODUCT_MODEL := Fly Turbo IQ285
 PRODUCT_MANUFACTURER := Fly
