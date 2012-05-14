@@ -20,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # common msm8660 configs
 $(call inherit-product, device/fly/iq285/msm8660.mk)
 
+$(call inherit-product, vendor/fly/iq285/iq285-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/fly/iq285/overlay
 
 # GPS and Light
@@ -63,14 +64,14 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    device/fly/iq285/keychars/K4-keypad.kcm:system/usr/keychars/K4-keypad.kcm \
+    device/fly/iq285/keychars/K4_keypad.kcm.bin:system/usr/keychars/K4_keypad.kcm.bin \
     device/fly/iq285/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/fly/iq285/keylayout/K4_touchscr.kl:system/usr/keylayout/K4_touchscr.kl \
     device/fly/iq285/keylayout/K4_headset.kl:system/usr/keylayout/K4_headset.kl \
-    device/fly/iq285/keylayout/K4_keypad.kll:system/usr/keylayout/K4_keipad.kl \
+    device/fly/iq285/keylayout/K4_keypad.kl:system/usr/keylayout/K4_keipad.kl \
 	device/fly/iq285/keylayout/K4_vkey.kl:system/usr/keylayout/K4_vkey.kl \
 	device/fly/iq285/keylayout/pmic8058_pwrkey.kl:system/usr/keylayout/pmic8058_pwrkey.kl \
-	device/fly/iq285/keylayout/qwerty.kl:system/usr/keylaout/qwerty.kl
+	device/fly/iq285/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 # QC thermald config
 PRODUCT_COPY_FILES += device/fly/iq285/configs/thermald.conf:system/etc/thermald.conf
 

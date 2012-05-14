@@ -3,17 +3,18 @@ bin/netmgrd
 bin/rmt_storage
 bin/thermald
 bin/qmuxd
+bin/battery_charging
 
 # Audio
 lib/libacdbloader.so
 lib/libacdbmapper.so
+lib/libaudioalsa.so
 
 # Camera
 lib/libcamera.so
 lib/libmmipl.so
 lib/libmmjpeg.so
 lib/liboemcamera.so
-
 # Graphics
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLES_android.so
@@ -41,7 +42,14 @@ lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 
 # Sensors
+lib/hw/copybit.msm8660.so
 lib/hw/sensors.msm8660.so
+lib/hw/gralloc.default.so
+lib/hw/gralloc.msm8660.so
+lib/hw/lights.msm8660.so
+lib/hw/overlay.default.so
+lib/hw/gps.default.so
+
 lib/libmllite.so
 lib/libmpl_sys_jni.so
 lib/libmpl.so

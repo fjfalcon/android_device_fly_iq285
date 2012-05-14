@@ -27,6 +27,9 @@
 # inherit from common msm8660
 -include device/fly/iq285/BoardConfigCommon.mk
 
+# inherit from the proprietary version
+-include vendor/fly/iq285/BoardConfigVendor.mk
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := K4
 
@@ -47,15 +50,23 @@ TARGET_USES_OVERLAY := false
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 4190208
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7743488
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 20971520
+BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
+BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
+BOARD_SYSTEMIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x07500000)
+BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x04ac0000)
+
+#BOARD_BOOTIMAGE_PARTITION_SIZE := 4190208
+#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7743488
+#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
+#BOARD_USERDATAIMAGE_PARTITION_SIZE := 20971520
 
 # Recovery
-#TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/fly/iq285/recovery_keys.c
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_pyramid
-#BOARD_CUSTOM_GRAPHICS:= ../../../device/htc/pyramid/recovery/graphics.c
+#BOARD_CUSTOM_GRAPHICS:= ../../../device/fly/iq285/graphics.c
 #BOARD_USES_MMCUTILS := true
-#BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_HAS_NO_MISC_PARTITION := true
 #BOARD_HAS_NO_SELECT_BUTTON := true
+
+

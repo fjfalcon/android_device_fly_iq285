@@ -25,7 +25,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
@@ -80,14 +79,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
-
-# for bugmailer
-ifneq ($(TARGET_BUILD_VARIANT),user)
-    PRODUCT_PACKAGES += send_bug
-    PRODUCT_COPY_FILES += \
-        system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-        system/extras/bugmailer/send_bug:system/bin/send_bug
-endif
 
 # 8660 Common Firmware
 PRODUCT_COPY_FILES += \
