@@ -16,7 +16,7 @@ $(call inherit-product, device/fly/iq285/device.mk)
 PRODUCT_DEVICE := K4
 PRODUCT_NAME := Fly_IQ285
 PRODUCT_BRAND := Fly
-PRODUCT_MODEL := Fly Turbo IQ285
+PRODUCT_MODEL := IQ285
 PRODUCT_MANUFACTURER := Fly
 
 # Set build fingerprint / ID / Product Name ect.

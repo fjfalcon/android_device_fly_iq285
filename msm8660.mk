@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # HDMI
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     hdmid
 
 # Misc
@@ -91,14 +91,14 @@ endif
 
 # 8660 Common Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    device/htc/msm8660-common/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/htc/msm8660-common/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw
+    device/fly/iq285/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
+    device/fly/iq285/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/fly/iq285/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
     device/fly/iq285/prebuilt/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/fly/iq285//prebuilt/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
+    device/fly/iq285/prebuilt/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

@@ -15,7 +15,7 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # common msm8660 configs
 $(call inherit-product, device/fly/iq285/msm8660.mk)
@@ -42,14 +42,14 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 # Boot ramdisk setup
-PRODUCT_COPY_FILES += \
-    device/htc/pyramid/prebuilt/init:root/init \
-    device/htc/pyramid/ramdisk/init.pyramid.rc:root/init.pyramid.rc \
-    device/htc/pyramid/ramdisk/init.pyramid.usb.rc:root/init.pyramid.usb.rc \
-    device/htc/pyramid/ramdisk/ueventd.pyramid.rc:root/ueventd.pyramid.rc
+#PRODUCT_COPY_FILES += \
+#    device/htc/pyramid/prebuilt/init:root/init \
+#    device/htc/pyramid/ramdisk/init.pyramid.rc:root/init.pyramid.rc \
+#    device/htc/pyramid/ramdisk/init.pyramid.usb.rc:root/init.pyramid.usb.rc \
+#    device/htc/pyramid/ramdisk/ueventd.pyramid.rc:root/ueventd.pyramid.rc
 
 ## recovery and custom charging
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/htc/pyramid/prebuilt/init:recovery/root/init \
     device/htc/pyramid/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
     device/htc/pyramid/recovery/sbin/power_test:recovery/root/sbin/power_test \
@@ -59,7 +59,7 @@ PRODUCT_COPY_FILES += \
 
 # Some misc configeration files
 PRODUCT_COPY_FILES += \
-    device/htc/pyramid/vold.fstab:system/etc/vold.fstab
+    device/fly/iq285/vold.fstab:system/etc/vold.fstab
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
@@ -67,12 +67,10 @@ PRODUCT_COPY_FILES += \
     device/fly/iq285/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/fly/iq285/keylayout/K4_touchscr.kl:system/usr/keylayout/K4_touchscr.kl \
     device/fly/iq285/keylayout/K4_headset.kl:system/usr/keylayout/K4_headset.kl \
-    device/fly/iq285/keylayout/K4_keypad.kll:system/usr/keylayout/K4_keipad.kl
-	device/fly/iq285/keylayout/K4_vkey.kl:system/usr/keylayout/K4_vkey.kl
-	device/fly/iq285/keylayout/pmic8058_pwrkey.kl:system/usr/keylayout/pmic8058_pwrkey.kl
+    device/fly/iq285/keylayout/K4_keypad.kll:system/usr/keylayout/K4_keipad.kl \
+	device/fly/iq285/keylayout/K4_vkey.kl:system/usr/keylayout/K4_vkey.kl \
+	device/fly/iq285/keylayout/pmic8058_pwrkey.kl:system/usr/keylayout/pmic8058_pwrkey.kl \
 	device/fly/iq285/keylayout/qwerty.kl:system/usr/keylaout/qwerty.kl
-
-
 # QC thermald config
 PRODUCT_COPY_FILES += device/fly/iq285/configs/thermald.conf:system/etc/thermald.conf
 
@@ -105,4 +103,3 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, vendor/fly/iq285/K4-vendor.mk)
 
 
-$(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)
