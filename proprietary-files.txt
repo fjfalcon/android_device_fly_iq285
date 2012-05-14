@@ -36,9 +36,9 @@ lib/libqmiservices.so
 lib/libqmi.so
 
 # Radio
-libril-qc-1.so
-libril-qc-qmi-1.so
-libril-qcril-hook-oem.so
+lib/libril-qc-1.so
+lib/libril-qc-qmi-1.so
+lib/libril-qcril-hook-oem.so
 
 # Sensors
 lib/hw/sensors.msm8660.so
