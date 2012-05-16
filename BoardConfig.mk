@@ -49,6 +49,7 @@ TARGET_USES_OVERLAY := false
 #BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := iq285
 
 # Filesystem
+
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
 BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
@@ -62,8 +63,7 @@ BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x04ac0000)
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/fly/iq285/recovery_keys.c
-#BOARD_CUSTOM_GRAPHICS:= ../../../device/fly/iq285/graphics.c
-#TARGET_RECOVERY_UI_LIB := librecovery_ui_pyramid
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 #BOARD_LDPI_RECOVERY := true

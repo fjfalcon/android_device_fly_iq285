@@ -20,7 +20,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # common msm8660 configs
 $(call inherit-product, device/fly/iq285/msm8660.mk)
 
-$(call inherit-product, vendor/fly/iq285/iq285-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/fly/iq285/overlay
 
 # GPS and Light
@@ -103,4 +102,7 @@ PRODUCT_COPY_FILES += \
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/fly/iq285/K4-vendor.mk)
 
+$(call inherit-product, vendor/fly/iq285/iq285-vendor.mk)
 
+PRODUCT_NAME := full_iq285
+PRODUCT_DEVICE := iq285
