@@ -2,7 +2,7 @@
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := flyiq285
+PRODUCT_RELEASE_NAME := iq285
 
 TARGET_BOOTANIMATION_NAME := vertical-540x960
 
@@ -13,9 +13,9 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/fly/iq285/device.mk)
 
 # Device naming
-PRODUCT_DEVICE := K4
-PRODUCT_NAME := Fly_IQ285
-PRODUCT_BRAND := Fly
+PRODUCT_DEVICE := iq285
+PRODUCT_NAME := cm_iq285
+PRODUCT_BRAND := fly
 PRODUCT_MODEL := IQ285
 PRODUCT_MANUFACTURER := Fly
 

@@ -61,12 +61,13 @@ BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x04ac0000)
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 20971520
 
 # Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/fly/iq285/recovery_keys.c
-#TARGET_RECOVERY_UI_LIB := librecovery_ui_pyramid
 #BOARD_CUSTOM_GRAPHICS:= ../../../device/fly/iq285/graphics.c
+#TARGET_RECOVERY_UI_LIB := librecovery_ui_pyramid
 #BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
+#BOARD_LDPI_RECOVERY := true
+BOARD_HAS_JUNKY_BACKBUFFER := true
 #BOARD_HAS_NO_SELECT_BUTTON := true
 
 
