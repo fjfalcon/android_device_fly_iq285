@@ -20,10 +20,11 @@ int device_handle_key(int key_code, int visible) {
 
             case 102:
                 return SELECT_ITEM;
-                }
+                
 			case 158:
 				return GO_BACK;
         }
-
+}
     return NO_ACTION;
 }
+
