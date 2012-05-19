@@ -41,7 +41,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
-    hwcomposer.msm8660 \
     libgenlock \
     libmemalloc \
     liboverlay \
@@ -50,9 +49,6 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio_policy.msm8660 \
-    audio.primary.msm8660 \
     libaudioutils
 
 # Omx
@@ -63,14 +59,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
-
-# HDMI
-#PRODUCT_PACKAGES += \
-    hdmid
-
-# Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
