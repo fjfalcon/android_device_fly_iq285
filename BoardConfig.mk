@@ -24,11 +24,78 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from common msm8660
--include device/fly/iq285/BoardConfigCommon.mk
 
 # inherit from the proprietary version
 -include vendor/fly/iq285/BoardConfigVendor.mk
+
+
+TARGET_SPECIFIC_HEADER_PATH := device/fly/iq285/include
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+
+# Architecture
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+
+# Scorpion optimizations
+TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+TARGET_USE_SCORPION_PLD_SET := true
+TARGET_SCORPION_BIONIC_PLDOFFS := 6
+TARGET_SCORPION_BIONIC_PLDSIZE := 128
+
+# WIFI defines
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+WIFI_DRIVER_FW_STA_PATH := "/vendor/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_AP_PATH := "/vendor/firmware/fw_bcm4329_hotspot.bin"
+BOARD_WLAN_DEVICE := bcm4329
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/system/etc/wifi/nvram_net.txt dhd_watchdog_ms=10 dhd_poll=1"
+WIFI_DRIVER_MODULE_NAME := "bcm4329"
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_GPS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
+# Graphics
+USE_OPENGL_RENDERER := true
+TARGET_HAVE_BYPASS := false
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_OVERLAY := true
+TARGET_QCOM_HDMI_OUT := true
+TARGET_QCOM_HDMI_RESOLUTION_AUTO := true
+BOARD_EGL_CFG := device/fly/iq285/configs/egl.cfg
+
+# Filesystem
+BOARD_VOLD_MAX_PARTITIONS := 36
+
+# FM Radio
+BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+
+# Webkit
+TARGET_FORCE_CPU_UPLOAD := true
+
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := K4
@@ -38,34 +105,26 @@ BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom board.revision=PP
 TARGET_PREBUILT_KERNEL := device/fly/iq285/prebuilt/kernel
-
+BOARD_USE_QCOM_PMEM := true
 # QCOM Gralloc/Copybit/HWcomposer
 TARGET_USES_OVERLAY := false
 
-#Camera
-#BOARD_HAVE_HTC_FFC := true
-
-# Qcom GPS
-#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := iq285
 
 # Filesystem
-
+COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
-BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
-BOARD_SYSTEMIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x07500000)
-BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x04ac0000)
-
-#BOARD_BOOTIMAGE_PARTITION_SIZE := 4190208
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7743488
-#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 419430400
-#BOARD_USERDATAIMAGE_PARTITION_SIZE := 20971520
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 268435456
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824
+BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/fly/iq285/recovery/recovery_keys.c
-BOARD_CUSTOM_GRAPHICS:= ../../../device/fly/iq285/recovery/graphics.c
+#BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/fly/iq285/recovery/recovery_keys.c
+#BOARD_CUSTOM_GRAPHICS:= ../../../device/fly/iq285/recovery/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_HAS_NO_RECOVERY := true
 
 
