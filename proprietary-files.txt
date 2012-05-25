@@ -40,15 +40,27 @@ lib/libqmi.so
 lib/libril-qc-1.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
+lib/liboncrpc.so
+lib/libdsm.so
+lib/libqueue.so
+lib/libauth.so
+lib/libcm.so
+lib/libmmgsdilib.so
+lib/libgsdi_exp.so
+lib/libgstk_exp.so
+lib/libnv.so
+lib/libpbmlib.so
+lib/libwms.so
+lib/libwmsts.so
 
 # Sensors
-lib/hw/copybit.msm8660.so
-lib/hw/sensors.msm8660.so
-lib/hw/gralloc.default.so
-lib/hw/gralloc.msm8660.so
-lib/hw/lights.msm8660.so
-lib/hw/overlay.default.so
-lib/hw/gps.default.so
+#lib/hw/copybit.msm8660.so
+#lib/hw/sensors.msm8660.so
+#lib/hw/gralloc.default.so
+#lib/hw/gralloc.msm8660.so
+#lib/hw/lights.msm8660.so
+#lib/hw/overlay.default.so
+#lib/hw/gps.default.so
 
 lib/libmllite.so
 lib/libmpl_sys_jni.so

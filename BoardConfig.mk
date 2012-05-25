@@ -55,15 +55,16 @@ TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 TARGET_USE_SCORPION_PLD_SET := true
 TARGET_SCORPION_BIONIC_PLDOFFS := 6
 TARGET_SCORPION_BIONIC_PLDSIZE := 128
-
+USE_CAMERA_STUB := true
+#use_camera_stub = true
 # WIFI defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WPA_SUPPLICANT_VERSION := VER_0_6_X
-WIFI_DRIVER_FW_STA_PATH := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_AP_PATH := "/vendor/firmware/fw_bcm4329_hotspot.bin"
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4329_hotspot.bin"
 BOARD_WLAN_DEVICE := bcm4329
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/system/etc/wifi/nvram_net.txt dhd_watchdog_ms=10 dhd_poll=1"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/wifi/nvram_net.txt dhd_watchdog_ms=10 dhd_poll=1"
 WIFI_DRIVER_MODULE_NAME := "bcm4329"
 
 # Bluetooth
@@ -110,7 +111,7 @@ TARGET_USES_OVERLAY := false
 
 
 # Filesystem
-COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
+#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
