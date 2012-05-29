@@ -65,3 +65,6 @@ lib/libwmsts.so
 lib/libmllite.so
 lib/libmpl_sys_jni.so
 lib/libmpl.so
+
+#firmware
+/etc/firmware/

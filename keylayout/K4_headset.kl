@@ -1,5 +1,0 @@
-#key 107   POWER             WAKE
-#key 114   VOLUME_DOWN       
-#key 115   VOLUME_UP         
-key 192   HEADSETHOOK       WAKE         # HEADSET SEND/END Key
-key 191   TDMB_ANT          WAKE         # TDMB ANT PULL  

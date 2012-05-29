@@ -21,6 +21,41 @@ PRODUCT_COPY_FILES += \
 	device/fly/iq285/ramdisk/init.iq285.rc:root/init.iq285.rc \
 	device/fly/iq285/ramdisk/init:root/init \
 	device/fly/iq285/ramdisk/ueventd.iq285.rc:root/ueventd.iq285.rc
+
+# Firmware copy
+PRODUCT_COPY_FILEs += \
+	device/fly/iq285/firmware/fw_bcm4329.bin:/system/etc/firmware/fw_bcm4329.bin \
+	device/fly/iq285/firmware/fw_bcm4329_hostspot.bin:/system/etc/firmware/fw_bcm4329_hotspot.bin \
+	device/fly/iq285/firmware/fw_bcm4329_test.bin:/system/etc/firmware/fw_bcm4329_test.bin \
+	device/fly/iq285/firmware/leia_pfp_470.fw:/system/etc/firmware/leia_pfp_470.fw \
+	device/fly/iq285/firmware/leia_pm4_470.fw:/system/etc/firmware/leia_pm4_470.fw \
+	device/fly/iq285/firmware/misc:/system/etc/firmware/misc \
+	device/fly/iq285/firmware/modem.b00:/system/etc/firmware/modem.b00 \
+	device/fly/iq285/firmware/modem.b01:/system/etc/firmware/modem.b01 \
+	device/fly/iq285/firmware/modem.b02:/system/etc/firmware/modem.b02 \
+	device/fly/iq285/firmware/modem.b03:/system/etc/firmware/modem.b03 \
+	device/fly/iq285/firmware/modem.b04:/system/etc/firmware/modem.b04 \
+	device/fly/iq285/firmware/modem.b05:/system/etc/firmware/modem.b05 \
+	device/fly/iq285/firmware/modem.b06:/system/etc/firmware/modem.b06 \
+	device/fly/iq285/firmware/modem.b07:/system/etc/firmware/modem.b07 \
+	device/fly/iq285/firmware/modem.b08:/system/etc/firmware/modem.b08 \
+	device/fly/iq285/firmware/modem.b09:/system/etc/firmware/modem.b09 \
+	device/fly/iq285/firmware/modem.mdt:/system/etc/firmware/modem.mdt \
+	device/fly/iq285/firmware/q6.b00:/system/etc/firmware/q6.b00 \
+	device/fly/iq285/firmware/q6.b01:/system/etc/firmware/q6.b01 \
+	device/fly/iq285/firmware/q6.b02:/system/etc/firmware/q6.b02 \
+	device/fly/iq285/firmware/q6.b03:/system/etc/firmware/q6.b03 \
+	device/fly/iq285/firmware/q6.b04:/system/etc/firmware/q6.b04 \
+	device/fly/iq285/firmware/q6.b05:/system/etc/firmware/q6.b05 \
+	device/fly/iq285/firmware/q6.b06:/system/etc/firmware/q6.b06 \
+	device/fly/iq285/firmware/q6.b07:/system/etc/firmware/q6.b07 \
+	device/fly/iq285/firmware/q6.mdt:/system/etc/firmware/q6.md6 \
+	device/fly/iq285/firmware/vidc_1080p.fw:/system/etc/firmware/vidc_1080p.fw \
+	device/fly/iq285/firmware/yamato_pfp.fw:/system/etc/firmware/yamato_pfp.fw \
+	device/fly/iq285/firmware/yamato_pm4.fw:/system/etc/firmware/yamato_pm4.fw
+
+
+
 # Modules
 PRODUCT_COPY_FILES += \
 	device/fly/iq285/modules/bcm4329.ko:system/lib/modules/bcm4329.ko
@@ -111,13 +146,6 @@ PRODUCT_COPY_FILES += \
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
     device/fly/iq285/keychars/K4_keypad.kcm.bin:system/usr/keychars/K4_keypad.kcm.bin \
-    device/fly/iq285/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/fly/iq285/keylayout/K4_touchscr.kl:system/usr/keylayout/K4_touchscr.kl \
-    device/fly/iq285/keylayout/K4_headset.kl:system/usr/keylayout/K4_headset.kl \
-    device/fly/iq285/keylayout/K4_keypad.kl:system/usr/keylayout/K4_keypad.kl \
-	device/fly/iq285/keylayout/K4_vkey.kl:system/usr/keylayout/K4_vkey.kl \
-	device/fly/iq285/keylayout/pmic8058_pwrkey.kl:system/usr/keylayout/pmic8058_pwrkey.kl \
-	device/fly/iq285/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 # QC thermald config
 PRODUCT_COPY_FILES += device/fly/iq285/configs/thermald.conf:system/etc/thermald.conf
 
