@@ -23,36 +23,16 @@ PRODUCT_COPY_FILES += \
 	device/fly/iq285/ramdisk/ueventd.iq285.rc:root/ueventd.iq285.rc
 
 # Firmware copy
-PRODUCT_COPY_FILEs += \
-	device/fly/iq285/firmware/fw_bcm4329.bin:/system/etc/firmware/fw_bcm4329.bin \
-	device/fly/iq285/firmware/fw_bcm4329_hostspot.bin:/system/etc/firmware/fw_bcm4329_hotspot.bin \
-	device/fly/iq285/firmware/fw_bcm4329_test.bin:/system/etc/firmware/fw_bcm4329_test.bin \
-	device/fly/iq285/firmware/leia_pfp_470.fw:/system/etc/firmware/leia_pfp_470.fw \
-	device/fly/iq285/firmware/leia_pm4_470.fw:/system/etc/firmware/leia_pm4_470.fw \
-	device/fly/iq285/firmware/misc:/system/etc/firmware/misc \
-	device/fly/iq285/firmware/modem.b00:/system/etc/firmware/modem.b00 \
-	device/fly/iq285/firmware/modem.b01:/system/etc/firmware/modem.b01 \
-	device/fly/iq285/firmware/modem.b02:/system/etc/firmware/modem.b02 \
-	device/fly/iq285/firmware/modem.b03:/system/etc/firmware/modem.b03 \
-	device/fly/iq285/firmware/modem.b04:/system/etc/firmware/modem.b04 \
-	device/fly/iq285/firmware/modem.b05:/system/etc/firmware/modem.b05 \
-	device/fly/iq285/firmware/modem.b06:/system/etc/firmware/modem.b06 \
-	device/fly/iq285/firmware/modem.b07:/system/etc/firmware/modem.b07 \
-	device/fly/iq285/firmware/modem.b08:/system/etc/firmware/modem.b08 \
-	device/fly/iq285/firmware/modem.b09:/system/etc/firmware/modem.b09 \
-	device/fly/iq285/firmware/modem.mdt:/system/etc/firmware/modem.mdt \
-	device/fly/iq285/firmware/q6.b00:/system/etc/firmware/q6.b00 \
-	device/fly/iq285/firmware/q6.b01:/system/etc/firmware/q6.b01 \
-	device/fly/iq285/firmware/q6.b02:/system/etc/firmware/q6.b02 \
-	device/fly/iq285/firmware/q6.b03:/system/etc/firmware/q6.b03 \
-	device/fly/iq285/firmware/q6.b04:/system/etc/firmware/q6.b04 \
-	device/fly/iq285/firmware/q6.b05:/system/etc/firmware/q6.b05 \
-	device/fly/iq285/firmware/q6.b06:/system/etc/firmware/q6.b06 \
-	device/fly/iq285/firmware/q6.b07:/system/etc/firmware/q6.b07 \
-	device/fly/iq285/firmware/q6.mdt:/system/etc/firmware/q6.md6 \
-	device/fly/iq285/firmware/vidc_1080p.fw:/system/etc/firmware/vidc_1080p.fw \
-	device/fly/iq285/firmware/yamato_pfp.fw:/system/etc/firmware/yamato_pfp.fw \
-	device/fly/iq285/firmware/yamato_pm4.fw:/system/etc/firmware/yamato_pm4.fw
+PRODUCT_COPY_FILES += \
+	device/fly/iq285/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
+	device/fly/iq285/firmware/fw_bcm4329_hotspot.bin:system/etc/firmware/fw_bcm4329_hotspot.bin \
+	device/fly/iq285/firmware/fw_bcm4329_test.bin:system/etc/firmware/fw_bcm4329_test.bin \
+	device/fly/iq285/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+	device/fly/iq285/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+	device/fly/iq285/firmware/misc:system/etc/firmware/misc \
+	device/fly/iq285/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
+	device/fly/iq285/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+	device/fly/iq285/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
 
 
