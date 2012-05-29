@@ -4,6 +4,7 @@ bin/rmt_storage
 bin/thermald
 bin/qmuxd
 bin/battery_charging
+bin/port-bridge
 
 # Audio
 lib/libacdbloader.so
@@ -67,4 +68,4 @@ lib/libmpl_sys_jni.so
 lib/libmpl.so
 
 #firmware
-/etc/firmware/
+/etc/init.qcom.modem_links.sh

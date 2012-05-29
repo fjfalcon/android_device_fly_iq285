@@ -27,19 +27,24 @@
 
 on boot-pause
     exec system/bin/battery_charging
-on early-fs
+on init
 	mkdir /system
+	mkdir /persist
+	mkdir /system/etc/firmware/misc
 	mkdir /data 0771 system system
-	mkdir /cache 0770 system cache
-	mkdir /persist 0771 system system
-	mkdir /system/etc/firmware/misc system system
-
-    mount ext4 /dev/block/mmcblk0p12 /system
-    mount ext4 /dev/block/mmcblk0p12 /system ro remount
-    mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev
-	mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev 
-    mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev
-	mount vfat /dev/block/mmcblk0p1  /system/etc/firmware/misc shortname=lower
+	mkdir /cache 0770 system 		cache
+	mkdir /persist 0771 system system	
+	mkdir /misc 0771 system system
+on fs
+    mount ext4 /dev/block/mmcblk0p12 /system wait noatime nodev 
+    mount ext4 /dev/block/mmcblk0p13 /data wait noatime nodev
+    mount ext4 /dev/block/mmcblk0p14 /persist wait noatime nodev
+    mount ext4 /dev/block/mmcblk0p15 /cache  noatime nodev
+    mount vfat /dev/block/mmcblk0p1  /misc shortname=lower
+    devwait /dev/block/mmcblk0p1
+    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    mount vfat /dev/block/mmcblk0p1  /system/etc/firmware/misc shortname=lower
+    mount ext4 /dev/block/mmcblk0p12 /system remount ro barrier=0
 
 on boot
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
@@ -74,6 +79,7 @@ on boot
     mkdir /data/wiper 0777 location qcom_oncrpc
 
      # Create directories for gpsone_daemon services
+
     mkdir /data/gpsone_d 0770 gpsone_d qcom_oncrpc
     mkdir /etc/gpsone_d 0770 gpsone_d qcom_oncrpc
 
@@ -105,45 +111,6 @@ on boot
     chmod 0755 /data/wiper
     chmod 0755 /data/shared
 
-# DO NOT USE !!! by TJ
-    #increase dirty_writeback_interval
-    #write /proc/sys/vm/dirty_writeback_centisecs 60000
-    #write /proc/sys/vm/dirty_expire_centisecs 60000
-    #write /proc/sys/vm/laptop_mode 5
-
-# USE THE ALTERNATIVES by TJ
-    # Overwrite framework low memory killer setting
-    write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,8192,12288
-    write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,8192,12288
-    write /sys/module/lowmemorykiller/parameters/check_filepages 1
-    write /proc/sys/vm/min_free_kbytes 4096    
-    
-    # Tweak background writeout
-    write /proc/sys/vm/dirty_expire_centisecs 200
-    write /proc/sys/vm/dirty_background_bytes 1024000
-    write /proc/sys/vm/dirty_bytes 20480000
-    write /proc/sys/vm/highmem_is_dirtyable 1
-
-
-# Export GPIO56 for fusion targets to enable/disable hub
-service usbhub_init /system/bin/usbhub_init
-   user root
-   disabled
-   oneshot
-
-on property:ro.product.device=msm7630_fusion
-    start usbhub_init
-
-on property:init.svc.wpa_supplicant=stopped
-    stop dhcpcd
-
-on property:init.svc.bluetoothd=running
-    write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000
-#   start btwlancoex
-
-#on property:init.svc.bluetoothd=stopped
-#   stop btwlancoex
-
 service cnd /system/bin/cnd
     socket cnd stream 660 root radio
 
@@ -154,18 +121,6 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmc
 on property:ro.emmc=1
     start rmt_storage
 
-# Start - Added by Sunhee, An for bluetooth testmenu (2011/03/23)
-service bt_dut_on /system/bin/sh /system/bin/bt.sh
-    disabled
-    user root
-    oneshot
-
-service bt_dut_off /system/bin/sh /system/bin/bt-off.sh
-    disabled
-    user root
-    oneshot
-
-# End - Added by Sunhee, An for bluetooth testmenu (2011/03/23)
 	
 # service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
 service hciattach /system/bin/hciattach -s 115200 -n /dev/ttyHS0 bcm4325 3000000 flow
@@ -180,23 +135,9 @@ service qmuxd /system/bin/qmuxd
     user radio
     group radio
     oneshot
-
-
-service wpa_supplicant /system/bin/wpa_supplicant \
-        -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin
-    class late_start
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
   
 
 service netmgrd /system/bin/netmgrd
-    disabled
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
@@ -208,26 +149,6 @@ service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     disabled
     oneshot
 
-service pm_disable /system/bin/sh /system/bin/wifi-pm-off.sh
-    disabled
-	user root
-	oneshot	    
-
-service pm_enable /system/bin/sh /system/bin/wifi-pm-on.sh
-    disabled
-	user root
-    oneshot    
-
-service wifi_test_on /system/bin/sh /system/bin/wifi.sh
-    disabled
-	user root
-	oneshot	    
-
-service wifi_test_off /system/bin/sh /system/bin/wifi-off.sh
-    disabled
-	user root
-    oneshot    
-
 service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf -dd
     user root
     group wifi inet
@@ -235,7 +156,6 @@ service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext 
     disabled
     oneshot
 
-#service dhcpcd_wlan0 /system/bin/dhcpcd -BKL wlan0
 service dhcpcd /system/bin/dhcpcd -BKL eth0
     disabled
     oneshot
